@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>CSS Grid Layout: Powerful Grid for Web Layouts</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/league.css">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- Slide 1: Horizontal -->
+      <section>
+        <!-- Slide 1.1 Vertical -->
+        <section>
+          <h1 class="r-fit-text">CSS Grid Layout</h1>
+          <h2 class="r-fit-text">Powerful Grid for Web Layouts</h2>
+          <p>Alina Cherkasova</p>
+        </section>
+        <!-- Slide 1.2 Vertical -->
+        <section>
+          <h3>What are we going to talk about today?</h3>
+          <ul>
+            <li class="fragment">What is CSS Grid Layout?</li>
+            <li class="fragment">Key Terms</li>
+            <li class="fragment">Grid container properties</li>
+            <li class="fragment">Grid Element Properties</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Slide 2: Horizontal -->
+      <section>
+        <!-- Slide 2.1 Vertical -->
+        <section>
+          <h2>What is CSS Grid Layout?</h2>
+          <p>It is a <strong>two-dimensional</strong> grid system for CSS, optimized for creating
+            complex user
+            interfaces and page layouts.</p>
+
+          <div class="fragment">
+            <p>Grids give you the ability to work in two dimensions simultaneously: horizontal and
+              vertical</p>
+
+            <img src="./assets/images/grid_slide_2.jpg" alt="CSS Grid change everything" style="height: 200px;">
+          </div>
+        </section>
+
+        <!-- Slide 2.2 Vertical -->
+        <section>
+          <h2>Problems of the past</h2>
+          <ul>
+            <li class="fragment">Tables: non-semantic, inflexible</li>
+            <li class="fragment">Floats: hard to manage</li>
+            <li class="fragment">Flexbox: great for one-dimensional layouts, but complex grids require nesting</li>
+          </ul>
+
+          <p class="fragment"><strong>Grid is designed specifically to solve these problems!</strong></p>
+        </section>
+
+        <!-- Slide 2.3 Vertical -->
+        <section>
+          <h2>Why do you need a Grid?</h2>
+          <p>Grid is needed to create structured and adaptive web page layouts.</p>
+          <div class="fragment">
+            It allows you to:
+            <ul>
+              <li class="fragment">Control the positioning and size of elements</li>
+              <li class="fragment">Adjust to screen sizes</li>
+              <li class="fragment">Simplify content redesign and updating</li>
+              <li class="fragment">Improve website performance</li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- Slide 3: Horizontal -->
+      <section>
+        <!-- Slide 3.1 Vertical -->
+        <section>
+          <h2>Key Terms</h2>
+          <ul>
+            <li class="fragment">Grid-container</li>
+            <li class="fragment">Grid-element</li>
+            <li class="fragment">Grid-line</li>
+            <li class="fragment">Grid-cell</li>
+            <li class="fragment">Grid-track</li>
+            <li class="fragment">Grid-area</li>
+          </ul>
+        </section>
+
+        <!-- Slide 3.2 Vertical -->
+        <section>
+          <h2>Grid-container</h2>
+          <p class="fragment">A grid container is a parent element to which the 'display: grid' or
+            'display: inline-grid' property is applied.
+          </p>
+        </section>
+
+        <!-- Slide 3.3 Vertical -->
+        <section>
+          <h2>Grid-element</h2>
+          <p class="fragment">A grid-element is a child element, a direct descendant of a grid-container.
+          </p>
+        </section>
+
+        <!-- Slide 3.4 Vertical -->
+        <section>
+          <pre>
+            <code data-trim class="language-html">
+              <div class="grid-container">
+                <div class="grid-item">1</div>
+                <div class="grid-item">2</div>
+              </div>
+            </code>
+          </pre>
+          <pre>
+            <code data-trim class="language-css">
+              .grid-container {
+                display: grid; /* Makes an element as a grid container */
+              }
+              .grid-item { /* It's a grid item */ } 
+            </code>
+          </pre>
+        </section>
+
+        <!-- Slide 3.5 Vertical -->
+        <section>
+          <h2>Grid line</h2>
+          <p class="fragment">A dividing line forming the grid structure. It is located on both sides of a column or
+            row. It is used for binding grid elements.
+          </p>
+          <img class="fragment" src="./assets/images/grid_line.png" alt="Grid line" style="height: 300px;">
+        </section>
+
+        <!-- Slide 3.6 Vertical -->
+        <section>
+          <h2>Grid-cell</h2>
+          <p class="fragment">The space between neighboring grid-lines.</p>
+          <img class="fragment" src="./assets/images/grid_cell.png" alt="Grid cell" style="height: 300px;">
+        </section>
+
+        <!-- Slide 3.7 Vertical -->
+        <section>
+          <h2>Grid-track</h2>
+          <p class="fragment">The space between two neighboring grid-lines.</p>
+          <img class="fragment" src="./assets/images/grid_track.png" alt="Grid track" style="height: 300px;">
+        </section>
+
+        <!-- Slide 3.8 Vertical -->
+        <section>
+          <h2>Grid-area</h2>
+          <p class="fragment">An area bounded by four grid-lines. It can consist of any number of cells both
+            horizontally and vertically.
+          </p>
+          <img class="fragment" src="./assets/images/grid_area.png" alt="Grid area" style="height: 300px;">
+        </section>
+      </section>
+
+      <!-- Slide 4: Horizontal -->
+      <section>
+        <!-- Slide 4.1 Vertical -->
+        <section>
+          <h2>Grid container properties</h2>
+        </section>
+
+        <!-- Slide 4.2 Vertical -->
+        <section>
+          <h2>display: grid</h2>
+
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                display: grid;
+              }
+            </code>
+          </pre>
+
+          <p class="fragment">If an element is given the “display: grid” property, such an element becomes a grid
+            container. The child elements of
+            this container start obeying the grid layout rules. From the outside, a grid container behaves like a block.
+          </p>
+        </section>
+
+        <!-- Slide 4.3 Vertical -->
+        <section>
+          <h2>display: inline-grid</h2>
+
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                display: inline-grid
+              }
+            </code>
+          </pre>
+
+          <p class="fragment">An element with the “display: inline-grid” property behaves almost similarly, except that
+            from the outside the grid-container will behave like a line element.</p>
+        </section>
+
+        <!-- Slide 4.4 Vertical -->
+        <section>
+          <h2>grid-template-columns, grid-template-rows</h2>
+          <p class="fragment">Properties that specify the size and number of columns or rows of the grid layout</p>
+
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                display: grid;
+                /* Will be created 3 columns */
+                grid-template-columns: 150px auto 40%;
+                /* Will be created 3 rows */
+                grid-template-rows: 250px 10vw 15rem;
+              }
+
+            </code>
+          </pre>
+        </section>
+
+        <!-- Slide 4.5 Vertical -->
+        <section>
+          <img src="./assets/images/grid-template-column.png" alt="Grid template colums and rows" style="height: 100%;">
+        </section>
+
+        <!-- Slide 4.5 Vertical -->
+        <section>
+          <h2>repeat() function</h2>
+          <p class="fragment">
+            If you need columns or rows of the same size, you can use the repeat() function.
+          </p>
+
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                display: grid;
+                grid-template-columns: repeat(3, 250px);
+                /* equels grid-template-columns: 250px 250px 250px; */
+              }
+
+            </code>
+          </pre>
+        </section>
+
+        <!-- Slide 4.6 Vertical -->
+        <section>
+          <h2>auto-fill & auto-fit</h2>
+          <p class="fragment">
+            In cases where the number of columns or rows is not known for the grid-template-columns and
+            grid-template-rows properties, you can use this properties.
+          </p>
+
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                grid-template-columns: repeat(/* auto-fill / auto-fit */, 250px);
+              }
+            </code>
+          </pre>
+
+          <p class="fragment">So what's the difference?</p>
+
+        </section>
+
+        <!-- Slide 4.7 Vertical -->
+        <section>
+          <h2>auto-fill & auto-fit</h2>
+          <p class="fragment">
+            Both settings automatically add columns to the grid-template.
+          </p>
+          <ul>
+            <li class="fragment"><strong>auto-fill</strong> tends to fill all available space with columns, and when the
+              elements run
+              out, it creates empty columns, evenly distributing the available area between existing and “virtual”
+              columns.</li>
+            <li class="fragment"><strong>auto-fit</strong> acts in a similar way, but, collapses the empty columns and
+              gives more space
+              to the filled ones.</li>
+          </ul>
+        </section>
+
+        <!-- Slide 4.8 Vertical -->
+        <section>
+          <h2>grid-template-areas</h2>
+          <p class="fragment">
+            Allows you to specify a grid pattern for the arrangement of elements within a grid container.
+          </p>
+
+          <p class="fragment">
+            The names of the areas are specified using the grid-area property. The current grid-template-areas property
+            simply
+            indicates where these grid areas should be located.
+          </p>
+        </section>
+
+        <!-- Slide 4.9 Vertical -->
+        <section>
+          <h2>grid-template-areas</h2>
+          <p class="fragment">
+            Possible values:
+          </p>
+          <ul>
+            <li class="fragment"><strong>none</strong> - the grid area is not given a name.</li>
+            <li class="fragment"><strong>.</strong> - means an empty cell.</li>
+            <li class="fragment"><strong>name</strong> - name of the area!</li>
+          </ul>
+
+          <p class="fragment"><strong>Important! It is necessary to name each of the cells.</strong></p>
+        </section>
+
+        <!-- Slide 4.10 Vertical -->
+        <section>
+          <h2>grid-template-areas</h2>
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                display: grid;
+                grid-template-columns: repeat(3, 500px);
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-areas:
+                "header header header"
+                ". content content"
+              }
+              .item1 {
+                grid-area: header;
+              }
+              .item2 {
+                grid-area: content;
+              }
+            </code>
+          </pre>
+        </section>
+
+        <!-- Slide 4.11 Vertical -->
+        <section>
+          <h2>row-gap, column-gap, gap</h2>
+          <ul>
+            <li class="fragment">
+              row-gap and column-gap sets the indentation between rows or columns.
+            </li>
+            <li class="fragment">
+              gap is a shortcut to write the values of the row-gap and column-gap properties. Values are
+              separated by a space.
+            </li>
+          </ul>
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                display: grid;
+                grid-template-columns: 1fr 350px 1fr;
+                grid-template-rows: repeat(3, 150px);
+                /* Row spacing */
+                row-gap: 50px;
+                /* Column spacing */
+                column-gap: 20px;
+              }
+            </code>
+          </pre>
+        </section>
+
+        <!-- Slide 4.12 Vertical -->
+        <section>
+          <h2>row-gap, column-gap, gap</h2>
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .container {
+                display: grid;
+                grid-template-columns: 1fr 350px 1fr;
+                grid-template-rows: repeat(3, 150px);
+                gap: 50px 20px;
+              }
+            </code>
+          </pre>
+
+          <img class="fragment" src="./assets/images/gap_property.png" alt="Gap property" style="height: 100%;">
+        </section>
+
+        <!-- Slide 4.13 Vertical -->
+        <section>
+          <h2>Remaining properties</h2>
+          <ul class="fragment">
+            <li>justify-content</li>
+            <li>justify-items</li>
+            <li>align-items</li>
+          </ul>
+          <p class="fragment">
+            Properties for horizontal and vertical alignment of elements
+          </p>
+          <p class="fragment">Their values and behavior are similar to those of the flexbox properties</p>
+        </section>
+
+        <!-- Slide 4.14 Vertical -->
+        <section>
+          <h2>place-items</h2>
+          <div class="fragment">
+            <pre>
+              <code data-trim class="language-css">
+                .container {
+                  display: grid;
+                  place-items: stretch end;
+                }
+              </code>
+            </pre>
+            <p>
+              Shortcut to specify values for both align-items and justify-items at once.
+            </p>
+            <p>It is important to specify properties in this order.</p>
+          </div>
+        </section>
+
+        <!-- Slide 4.15 Vertical -->
+        <section>
+          <h2>grid</h2>
+          <p>
+            A megashortcut that allows you to specify values for everything at once. You can use it to specify values
+            for properties:
+          </p>
+          <ul class="fragment">
+            <li>grid-template-rows</li>
+            <li>grid-template-columns</li>
+            <li>grid-template-areas</li>
+            <li>grid-auto-rows</li>
+            <li>grid-auto-columns</li>
+            <li>grid-auto-flow</li>
+          </ul>
+        </section>
+
+        <!-- Slide 4.16 Vertical -->
+        <section>
+          <h2>grid property</h2>
+          <p>Before using everything in one property, think about the readability of the code!</p>
+        </section>
+      </section>
+
+      <!-- Slide 5: Horizontal -->
+      <section>
+
+        <!-- Slide 5.1 Vertical -->
+        <section>
+          <h2>Grid Element Properties</h2>
+          <ul>
+            <li class="fragment">grid-column-start, grid-column-end, grid-row-start, grid-row-end</li>
+            <li class="fragment">grid-column, grid-row</li>
+            <li class="fragment">grid-area</li>
+            <li class="fragment">justify-self</li>
+            <li class="fragment">align-self</li>
+            <li class="fragment">place-self</li>
+          </ul>
+        </section>
+
+        <!-- Slide 5.2 Vertical -->
+        <section>
+          <h2>justify-self and align-self</h2>
+          <p>These properties, aligns the individual element on the horizontal and vertical axis</p>
+          <p class="fragment">Property values and behavior is similar to flexbox</p>
+        </section>
+
+        <!-- Slide 5.3 Vertical -->
+        <section>
+          <h2>place-self</h2>
+          <p>Shortcut for specifying values to the justify-self and align-self properties at the same time</p>
+          <p class="fragment"><strong>Possible values:</strong></p>
+          <ul>
+            <li class="fragment"><strong>auto</strong> - default value, can be used to reset previously set values.</li>
+            <li class="fragment"><strong>align-self justify-self</strong></li>
+          </ul>
+        </section>
+
+        <!-- Slide 5.4 Vertical -->
+        <section>
+          <h2>grid-column-start, grid-column-end, grid-row-start, grid-row-end</h2>
+          <p>Determine the position of an element within the grid container by pointing to specific guide lines.</p>
+        </section>
+
+        <!-- Slide 5.5 Vertical -->
+        <section>
+          <p class="fragment"><strong>Possible values:</strong></p>
+          <ul>
+            <li class="fragment"><strong>name or line number</strong> - can be a sequence number or the name of a
+              specific line</li>
+            <li class="fragment"><strong>span number</strong> - the element will stretch to the specified number of
+              cells.</li>
+            <li class="fragment"><strong>span name</strong> - the element will stretch to the next specified line.</li>
+            <li class="fragment"><strong>auto</strong> - means automatic placement, automatic cell range or default
+              stretching of the element equal to one.</li>
+          </ul>
+        </section>
+
+        <!-- Slide 5.6 Vertical -->
+        <section>
+          <pre>
+            <code data-trim class="language-css">
+              .container {
+                display: grid;
+                grid-template-columns: [one] 1fr [two] 1fr [three] 1fr [four] 1fr [five] 1fr [six];
+                grid-template-rows: [row1-start] 1fr [row1-end] 1fr 1fr;
+              }
+              
+              .item1 {
+                grid-column-start: 2;
+                grid-column-end: five;
+                grid-row-start: row1-start;
+                grid-row-end: 3;
+              }
+
+            </code>
+          </pre>
+        </section>
+
+        <!-- Slide 5.7 Vertical -->
+        <section>
+          <img src="./assets/images/grid-column-start-end_grid-row-start-end.png"
+            alt="grid-column-start, grid-column-end, grid-row-start, grid-row-end properties" style="height: 100%;">
+        </section>
+
+        <!-- Slide 5.8 Vertical -->
+        <section>
+          <h2>grid-column, grid-row</h2>
+          <p>Shortcut properties for grid-column-start, grid-column-end and grid-row-start, grid-row-end respectively.
+          </p>
+          <p class="fragment">Values for *-start and *-end are separated by a slash</p>
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .item1 {
+                grid-column: 3 / span 2;
+                grid-row: 3 / 4;
+              }
+            </code>
+          </pre>
+        </section>
+
+        <!-- Slide 5.9 Vertical -->
+        <section>
+          <h2>grid-column, grid-row</h2>
+          <img src="./assets/images/grid-column_grid-row.png" alt="grid-column and grid-row properties"
+            style="height: 100%;">
+        </section>
+
+        <!-- Slide 5.10 Vertical -->
+        <section>
+          <h2>grid-area</h2>
+          <p>A duplicitous property</p>
+          <ul>
+            <li class="fragment">can tell the element which of the named areas it should occupy.</li>
+            <li class="fragment">can be used as a shortcut to simultaneously specify values for four properties:
+              grid-column-start, grid-column-end, grid-row-start and grid-row-end.</li>
+          </ul>
+        </section>
+
+        <!-- Slide 5.11 Vertical -->
+        <section>
+          <h2>grid-area</h2>
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .item1 {
+                /* Takes up the content area inside the grid container */
+                grid-area: content;
+              }
+            </code>
+          </pre>
+
+          <pre class="fragment">
+            <code data-trim class="language-css">
+              .item1 {
+                /* values are listed in this order
+                row-start / column-start / row-end / column-end */
+                grid-area: 1 / col4-start / last-line / 6;
+              }
+            </code>
+          </pre>
+        </section>
+      </section>
+
+      <!-- Slide 6: Horizontal -->
+      <section>
+        <!-- Slide 6.1: Vertical -->
+        <section>
+          <h2>Conclusions</h2>
+          <ul>
+            <li>CSS Grid is a two-dimensional grid system;</li>
+            <li>Flexible, powerful, but more complex than Flexbox;</li>
+            <li>Full control over alignment;</li>
+            <li>Has a number of new units (`fr`) and functions (`repeat()`, `minmax()`);</li>
+            <li>Great for complex page layouts and interfaces;</li>
+            <li>Perfect together with Flexbox for the best results;</li>
+          </ul>
+        </section>
+
+        <!-- Slide 6.2: Vertical -->
+        <section data-markdown>
+          ## Useful links
+          - [A Complete Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
+          - [Grid Cheatsheet](https://yoksel.github.io/grid-cheatsheet/)
+          - [Learning CSS Grid](https://grid.malven.co/)
+
+        </section>
+      </section>
+
+      <!-- Slide 7: Horizontal -->
+      <section data-markdown>
+        ## Thank you for your attention!
+        ### My Contacts
+        - [Telegram](https://t.me/cherkasova_aa)
+        - [E-mail](mailto:alina.ch1202@yandex.com)
+        - [Github](https://github.com/cherkasovaa)
+
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      transition: 'convex',
+      plugins: [RevealMarkdown, RevealHighlight]
+    });
+  </script>
+</body>
+
+</html>
